@@ -11,4 +11,4 @@ Route::get('/', function () {
 
 Route::resource('/fakultas', FakultasController::class);
 Route::resource('/periode', PeriodeController::class);
-Route::get('/prodi', [ProdiController::class, 'index']);
+Route::resource('/prodi', ProdiController::class);

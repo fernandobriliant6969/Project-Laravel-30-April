@@ -21,15 +21,22 @@ class PeriodeController extends Controller
      */
     public function create()
     {
-        //
+        return view('periode.create');
     }
 
-    /**
+    /** 
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->validate([
+            'tahunAkademik' => 'required',
+            'semester' => 'required'
+        ]);
+
+        Periode::create($input);
+
+        return redirect()->route('periode.index');
     }
 
     /**
