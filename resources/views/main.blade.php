@@ -29,7 +29,7 @@
     <!--begin::Accessibility Features-->
     <!-- Skip links will be dynamically added by accessibility.js -->
     <meta name="supported-color-schemes" content="light dark" />
-    <link rel="preload" href="../css/adminlte.css" as="style" />
+    <link rel="preload" href="{{ asset('css/adminlte.css')}}" as="style" />
     <!--end::Accessibility Features-->
 
     <!--begin::Fonts-->
@@ -60,7 +60,7 @@
     <!--end::Third Party Plugin(Bootstrap Icons)-->
 
     <!--begin::Required Plugin(AdminLTE)-->
-    <link rel="stylesheet" href="../css/adminlte.css" />
+    <link rel="stylesheet" href="{{ asset('css/adminlte.css') }}" />
     <!--end::Required Plugin(AdminLTE)-->
   </head>
   <!--end::Head-->
@@ -110,7 +110,7 @@
                   <div class="d-flex">
                     <div class="flex-shrink-0">
                       <img
-                        src="../assets/img/user1-128x128.jpg"
+                        src="{{ asset('assets/img/user1-128x128.jpg') }}"
                         alt="User Avatar"
                         class="img-size-50 rounded-circle me-3"
                       />
@@ -136,7 +136,7 @@
                   <div class="d-flex">
                     <div class="flex-shrink-0">
                       <img
-                        src="../assets/img/user8-128x128.jpg"
+                        src="{{ asset('assets/img/user8-128x128.jpg') }}"
                         alt="User Avatar"
                         class="img-size-50 rounded-circle me-3"
                       />
@@ -162,7 +162,7 @@
                   <div class="d-flex">
                     <div class="flex-shrink-0">
                       <img
-                        src="../assets/img/user3-128x128.jpg"
+                        src="{{ asset('assets/img/user3-128x128.jpg') }}"
                         alt="User Avatar"
                         class="img-size-50 rounded-circle me-3"
                       />
@@ -230,7 +230,7 @@
             <li class="nav-item dropdown user-menu">
               <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                 <img
-                  src="../assets/img/11.jpg"
+                  src="{{ asset('assets/img/11.jpg') }}"
                   class="user-image rounded-circle shadow"
                   alt="User Image"
                 />
@@ -240,7 +240,7 @@
                 <!--begin::User Image-->
                 <li class="user-header text-bg-primary">
                   <img
-                    src="../assets/img/11.jpg"
+                    src="{{ asset('assets/img/11.jpg') }}"
                     class="rounded-circle shadow"
                     alt="User Image"
                   />
@@ -270,7 +270,10 @@
                 <!--begin::Menu Footer-->
                 <li class="user-footer">
                   <a href="#" class="btn btn-outline-secondary">Profile</a>
-                  <a href="#" class="btn btn-outline-danger float-end">Sign out</a>
+                  <form method="POST" action="{{ route('logout') }}" class="d-inline">
+                    @csrf
+                    <button type="submit" clas="btn btn-outline-danger float-end">Sign out</a>
+                  </form>
                 </li>
                 <!--end::Menu Footer-->
               </ul>
@@ -290,7 +293,7 @@
           <a href="../index.html" class="brand-link">
             <!--begin::Brand Image-->
             <img
-              src="../assets/img/AdminLTELogo.png"
+              src="{{ asset('assets/img/AdminLTELogo.png') }}"
               alt="AdminLTE Logo"
               class="brand-image opacity-75 shadow"
             />
@@ -315,24 +318,76 @@
               id="navigation"
             >
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-speedometer"></i>
-                  <p>
-                    Dashboard
-                  </p>
+                <a href="javascript:void(0)" class="nav-link">
+                  <i class="bi bi-pencil-square"></i>
+                  <p>Periode</p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ route('periode.create') }}" class="nav-link">
+                      <p>Tambah Periode</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ route('periode.index') }}" class="nav-link">
+                      <p>List Periode</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
               <li class="nav-item">
-                <a href="{{ route('fakultas.index') }}" class="nav-link">
-                  <i class="nav-icon bi bi-palette"></i>
+                <a href="javascript:void(0)" class="nav-link">
+                  <i class="bi bi-journal-text"></i>
                   <p>Fakultas</p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ route('fakultas.create') }}" class="nav-link">
+                      <p>Tambah Fakultas</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ route('fakultas.index') }}" class="nav-link">
+                      <p>List Fakultas</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
               <li class="nav-item">
-                <a href="{{ route('prodi.index') }}" class="nav-link">
-                  <i class="nav-icon bi bi-palette"></i>
+                <a href="javascript:void(0)" class="nav-link">
+                  <i class="nav-icon bi bi-bank"></i>
                   <p>Prodi</p>
                 </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ route('prodi.create') }}" class="nav-link">
+                      <p>Tambah Prodi</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ route('prodi.index') }}" class="nav-link">
+                      <p>List Prodi</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="javascript:void(0)" class="nav-link">
+                  <i class="nav-icon bi bi-people"></i>
+                  <p>Mahasiswa</p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{ route('mahasiswa.create') }}" class="nav-link">
+                      <p>Tambah Mahasiswa</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{ route('mahasiswa.index') }}" class="nav-link">
+                      <p>List Mahasiswa</p>
+                    </a>
+                  </li>
+                </ul>
               </li>
             </ul>
             <!--end::Sidebar Menu-->
@@ -472,6 +527,27 @@
           });
         }
       });
+    </script>
+<script src="https://code.jquery.com/jquery-4.0.0.slim.js" integrity="sha256-M+GjhMBfXikM1izMplICCTscIj5hzPCp6uDzaypxtgg=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script type="text/javascript">
+        $('.show_confirm').click(function(event) {
+            var form = $(this).closest("form");
+            var nama = $(this).data("nama");
+            event.preventDefault();
+            swal({
+                    title: `Apakah Anda yakin ingin menghapus data ${nama} ini?`,
+                    text: "If you delete this, it will be gone forever.",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                    }
+                });
+        });
     </script>
     <!--end::OverlayScrollbars Configure-->
     <!--end::Script-->

@@ -7,6 +7,7 @@
 @section('author', '2529250018 - Fernando Briliant')
 
 @section('content')
+    <a href="{{ route('prodi.create') }}" class="btn btn-primary mb-2">Tambah Prodi</a>
     <table class="table table-bordered text-center">
         <tr>
             <th>No</th>
