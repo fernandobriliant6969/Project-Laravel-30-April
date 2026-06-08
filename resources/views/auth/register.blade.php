@@ -80,27 +80,28 @@
         <div class="card-body register-card-body">
           <p class="register-box-msg">Register a new membership</p>
 
-          <form action="../index3.html" method="post">
+          <form action="{{ route('register') }}" method="POST">
+            @csrf
             <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Nama" />
+              <input type="text" class="form-control" placeholder="Nama" name="name" />
               <div class="input-group-text">
                 <span class="bi bi-person"></span>
               </div>
             </div>
             <div class="input-group mb-3">
-              <input type="email" class="form-control" placeholder="Email" />
+              <input type="email" class="form-control" placeholder="Email" name="email" />
               <div class="input-group-text">
                 <span class="bi bi-envelope"></span>
               </div>
             </div>
             <div class="input-group mb-3">
-              <input type="password" class="form-control" placeholder="Password" />
+              <input type="password" class="form-control" placeholder="Password"  name="password" />
               <div class="input-group-text">
                 <span class="bi bi-lock-fill"></span>
               </div>
             </div>
             <div class="input-group mb-3">
-              <input type="password" class="form-control" placeholder="Password Confirm" />
+              <input type="password" class="form-control" placeholder="Password Confirm" name="password_confirmation" />
               <div class="input-group-text">
                 <span class="bi bi-lock-fill"></span>
               </div>

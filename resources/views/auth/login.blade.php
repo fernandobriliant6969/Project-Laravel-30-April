@@ -80,6 +80,7 @@
           <p class="login-box-msg">Sign in to start your session</p>
 
           <form action="{{ route('login') }}" method="POST">
+            @csrf
             <div class="input-group mb-3">
               <input type="email" class="form-control" placeholder="Email" value="{{old('email')}}" name="email" />
               <div class="input-group-text">
